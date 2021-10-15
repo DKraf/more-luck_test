@@ -21,5 +21,6 @@ Auth::routes();
 
 Route::get('/upload', [App\Http\Controllers\HomeController::class, 'upload'])->name('upload');
 Route::post('/check/creat', [\App\Http\Controllers\CheckController::class, 'creat'])->name('creat');
+Route::get('/check/list', [\App\Http\Controllers\CheckController::class, 'list'])->name('list');
 
 

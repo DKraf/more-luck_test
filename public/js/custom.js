@@ -37,6 +37,7 @@ function sendAjax() {
         processData: false,
         success: function() {
             alert('Чек успешно загружен');
+            window.location.href = '/check/list';
         },
         error: function() {
             alert ('Ошибка зазгрузки чека, проверьте фото')
