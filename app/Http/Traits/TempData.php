@@ -16,14 +16,17 @@ class TempData
      */
     public function get($request): array
     {
+        $path = 'public/';
+        $path_name = 'storage/';
         $request->validate([
             'check_type' => 'required',
             'photo' => 'required'
         ]);
-        $custom_file_name = $request->photo->getClientOriginalName();
+        $photoname = $request->photo->getClientOriginalName();
+        $request->photo->storeAs($path, $photoname);
         $checked = $this->assignStatusAndCode($request['check_type']);
         $temp_data['user_id'] = Auth::user()->id;
-        $temp_data['photo'] = $request->photo->storeAs('image', $custom_file_name);
+        $temp_data['photo'] = $path_name . $photoname ;
         $temp_data['type'] = ($request['check_type']) ? 'Призовой' : 'Обычный';
         $temp_data['code'] = $checked['code'];
         $temp_data['status'] = (bool)$checked['status'];

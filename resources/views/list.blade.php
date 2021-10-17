@@ -19,9 +19,8 @@
             <tr>
                 <th scope="row">{{ $data->id }}</th>
                 <td>{{ $data->name }}</td>
-                <td>{{ $data->photo }}</td>
+                <td><a href=" <?php echo asset($data->photo)?>" target="_blank">Фото чека</a></td>
                 <td>{{ $data->type }}</td>
-{{--                <td>{{$data->created_at}}</td>--}}
                 <td><?php echo ($data->created_at)->format('m-d-Y'); ?></td>
                 <td>@if(isset($data->code) && $data->code !='')
                         <?php
